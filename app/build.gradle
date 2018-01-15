@@ -20,11 +20,11 @@ android {
         release {
             keyAlias "key0"
             keyPassword System.getenv("APP_KEYSTORE_PASSWORD")
-            storeFile file("keystore123456.jks")
+            storeFile file("../keystore123456.jks")
             storePassword System.getenv("APP_KEYSTORE_PASSWORD")
         }
         debug {
-            storeFile file("keystore123456.jks")
+            storeFile file("../keystore123456.jks")
         }
     }
 
