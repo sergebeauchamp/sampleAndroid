@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
-final Properties props = new Properties()
-props.load(new FileInputStream('build.properties'))
+//final Properties props = new Properties()
+//props.load(new FileInputStream('build.properties'))
 
 android {
     compileSdkVersion 25
