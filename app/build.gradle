@@ -24,6 +24,7 @@ android {
             storePassword System.getenv("APP_KEYSTORE_PASSWORD")
         }
         debug {
+            keyAlias "key0"
             keyPassword System.getenv("APP_KEYSTORE_PASSWORD")
             storePassword System.getenv("APP_KEYSTORE_PASSWORD")
             storeFile file("../keystore123456.jks")
