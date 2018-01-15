@@ -24,7 +24,7 @@ android {
             storePassword System.getenv("APP_KEYSTORE_PASSWORD")
         }
         debug {
-            storeFile file(props['keystore.debug'])
+            storeFile file("keystore123456.jks")
         }
     }
 
