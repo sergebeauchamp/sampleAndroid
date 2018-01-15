@@ -16,19 +16,18 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
-/*
     signingConfigs {
         release {
-            keyAlias props['keystore.key.alias']
+            keyAlias "key0"
             keyPassword System.getenv("APP_KEYSTORE_PASSWORD")
-            storeFile file(props['keystore.release'])
+            storeFile "keystore123456.jks"
             storePassword System.getenv("APP_KEYSTORE_PASSWORD")
         }
         debug {
             storeFile file(props['keystore.debug'])
         }
     }
-*/
+
     buildTypes {
         release {
             minifyEnabled false
