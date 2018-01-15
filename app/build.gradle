@@ -1,6 +1,21 @@
 apply plugin: 'com.android.application'
 
+final Properties props = new Properties()
+props.load(new FileInputStream('build.properties'))
+
 android {
+    signingConfigs {
+        release {
+            keyAlias props['keystore.key.alias']
+            keyPassword props['keystore.key.password']
+            storeFile file(props['keystore.release'])
+            storePassword props['keystore.password']
+        }
+        debug {
+            storeFile file(props['keystore.debug'])
+        }
+    }
+
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
     defaultConfig {
@@ -15,6 +30,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 }
@@ -29,32 +45,4 @@ dependencies {
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
     testCompile 'junit:junit:4.12'
-}
-
-final Properties props = new Properties()
-props.load(new FileInputStream('build.properties'))
-android {
-    signingConfigs {
-        release {
-            keyAlias props['keystore.key.alias']
-            keyPassword props['keystore.key.password']
-            storeFile file(props['keystore.release'])
-            storePassword props['keystore.password']
-        }
-        debug {
-            storeFile file(props['keystore.debug'])
-        }
-    }
-
-    buildTypes {
-        release {
-            ...
-            signingConfig signingConfigs.release
-        }
-
-        debug {
-            ...
-            signingConfig signingConfigs.debug
-        }
-    }
 }
