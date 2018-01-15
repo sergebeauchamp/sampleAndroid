@@ -4,6 +4,9 @@ final Properties props = new Properties()
 props.load(new FileInputStream('build.properties'))
 
 android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    
     signingConfigs {
         release {
             keyAlias props['keystore.key.alias']
@@ -16,8 +19,6 @@ android {
         }
     }
 
-    compileSdkVersion 25
-    buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "foobar.beauchamp.qc.ca.sampleandroid"
         minSdkVersion 23
